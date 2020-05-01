@@ -20,3 +20,14 @@
     font-size: 18px;
     font-weight: bold;
 }
+.navbar-brand:before{
+	background-image: url("logo.png");
+}
+.navbar-brand:hover{
+	text-decoration: underline;
+    font-size: 30px ! important;
+}
+.navbar-brand{
+	text-decoration: underline;
+    font-size: 30px ! important;
+}

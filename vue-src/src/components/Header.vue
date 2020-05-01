@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-header">
         <router-link class="navbar-brand" to="/">
-          Online Movie
+          Cinephile
         </router-link>
       </div>
       <ul class="nav navbar-nav navbar-right">
