@@ -1,29 +1,23 @@
 <template>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-theme">
+    <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">{{ram}}</a>
+        <router-link class="navbar-brand" to="/">
+          Online Movie
+        </router-link>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
-          <router-link class="dropdown-item" to="/">
-            Home
-          </router-link>
+            <router-link to="/cms/privacy-policy">Privacy and Policy</router-link>
         </li>
         <li>
-            <router-link class="dropdown-item" to="/about">
-              About
-            </router-link>
+            <router-link to="/cms/about">About</router-link>
         </li>
         <li>
-            <router-link class="dropdown-item" to="/cms/faq">
-              FAQ
-            </router-link>
+            <router-link to="/contact-us">Contact Us</router-link>
         </li>
         <li>
-            <router-link class="dropdown-item" to="/cms/how-to-work">
-              How to work
-            </router-link>
+            <router-link to="/login">Login</router-link>
         </li>
       </ul>
     </div>
