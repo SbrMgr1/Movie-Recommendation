@@ -12,6 +12,7 @@ module.exports = class Helper {
                 email: '',
                 role: '',
                 profilePic: '',
+                messageBox:''
             };
             var userInfoLocal = JSON.parse(localStorage.getItem('userInfo'));
             if (typeof (userInfoLocal) === 'object') {
@@ -46,10 +47,41 @@ module.exports = class Helper {
                             userInfo.profilePic = userInfoLocal.profilePic;
                         }
                     }
+                    if (typeof (userInfo.messageBox) !== 'undefined') {
+                        if (typeof(userInfoLocal.messageBox.status) != 'undefined') {
+                            userInfo.messageBox = userInfoLocal.messageBox;
+                            if(typeof(userInfo.messageBox.status) == 'undefined'){
+                                userInfo.messageBox['status'] == '';
+                                userInfo.messageBox['message'] == '';
+                            }
+                        }
+                    }
                 }
 
             }
             return userInfo;
+    }
+    setLocalMessage(status,message){
+        var userInfo = this.getUserInfo();
+        userInfo['messageBox'] = {
+            status:status,
+            message:message
+        };
+        this.setUserInfo(userInfo);
+    }
+    getLocalMessage(){
+        var userInfo = this.getUserInfo();
+        var messageBox = userInfo.messageBox;
+        userInfo['messageBox'] = {};
+        this.setUserInfo(userInfo);
+        if(typeof(messageBox.status) != 'undefined'){
+            if(messageBox.status == 'success'){
+                messageBox['alert_status'] = 'alert alert-success';
+            }else if(messageBox.status == 'danger'){
+                messageBox['alert_status'] = 'alert alert-danger';
+            }
+        }        
+        return messageBox;
     }
     setUserNewToken = function (newToken) {
         var userInfo = this.getUserInfo();
@@ -63,6 +95,9 @@ module.exports = class Helper {
         localStorage.removeItem('userInfo');
     }
     setUserInfo(datas) {  
+        if(typeof(datas.messageBox) == 'undefined'){
+            datas['messageBox'] = {}
+        }
         localStorage.setItem('userInfo', JSON.stringify(datas));
     }
     getFormData(formData){

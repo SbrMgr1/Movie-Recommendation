@@ -39,12 +39,13 @@
       },
       data(){
         // initializing the datas
+        var messageBox = this.helper.getLocalMessage();
         return {
           errors:[],
           username:null,
           password:null,
-          message:"",
-          alert_status:""
+          message:messageBox.message,
+          alert_status:messageBox.alert_status
         }
       },
       methods:{
@@ -81,7 +82,9 @@
         }
       },
       mounted(){
-
+        if(this.helper.getUserInfo().displayName != ""){
+          window.location.href = "/";
+        }
       }
     }
 </script>

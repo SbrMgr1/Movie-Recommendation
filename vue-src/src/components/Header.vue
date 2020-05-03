@@ -43,7 +43,8 @@ export default {
   methods:{
     logout:function(e){
       this.helper.unsetUserInfo();
-      window.location.href = "/"; 
+      this.helper.setLocalMessage("success","Logout successfully.");
+      window.location.href = "/login"; 
       e.preventDefalt();    
     }
   },
