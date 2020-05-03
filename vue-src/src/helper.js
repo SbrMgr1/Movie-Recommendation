@@ -1,18 +1,14 @@
 module.exports = class Helper {
 
     userRole = {
-        user:'CUSTOMER',
-        driver:'DRIVER',
-        restaurant:'RESTAURANT'
+        user:'AUDIENCE'
     }   
     
     getUserInfo () {
             var userInfo = {
-                id: '',
-                username: '',
+                userId: 0,
+                displayName: '',
                 userToken: '',
-                firstName: '',
-                lastName: '',
                 email: '',
                 role: '',
                 profilePic: '',
@@ -20,29 +16,19 @@ module.exports = class Helper {
             var userInfoLocal = JSON.parse(localStorage.getItem('userInfo'));
             if (typeof (userInfoLocal) === 'object') {
                 if (userInfoLocal !== null) {
-                    if (typeof (userInfo.id) !== 'undefined') {
-                        if (userInfoLocal.id !== '') {
-                            userInfo.id = userInfoLocal.id;
+                    if (typeof (userInfo.userId) !== 'undefined') {
+                        if (userInfoLocal.userId !== 0) {
+                            userInfo.userId = userInfoLocal.userId;
                         }
                     }
-                    if (typeof (userInfo.username) !== 'undefined') {
-                        if (userInfoLocal.username !== '') {
-                            userInfo.username = userInfoLocal.username;
+                    if (typeof (userInfo.displayName) !== 'undefined') {
+                        if (userInfoLocal.displayName !== '') {
+                            userInfo.displayName = userInfoLocal.displayName;
                         }
                     }
                     if (typeof (userInfo.userToken) !== 'undefined') {
                         if (userInfoLocal.userToken !== '') {
                             userInfo.userToken = userInfoLocal.userToken;
-                        }
-                    }
-                    if (typeof (userInfo.firstName) !== 'undefined') {
-                        if (userInfoLocal.firstName !== '') {
-                            userInfo.firstName = userInfoLocal.firstName;
-                        }
-                    }
-                    if (typeof (userInfo.lastName) !== 'undefined') {
-                        if (userInfoLocal.lastName !== '') {
-                            userInfo.lastName = userInfoLocal.lastName;
                         }
                     }
                     if (typeof (userInfo.email) !== 'undefined') {
@@ -82,7 +68,7 @@ module.exports = class Helper {
     getFormData(formData){
 
         // formData.append('identity',this.getUserInfo().identity);
-        // formData.append('username',this.getUserInfo().username);
+        // formData.append('displayName',this.getUserInfo().displayName);
 
         return formData;
     }
@@ -180,7 +166,7 @@ module.exports = class Helper {
                             if(typeof(params.withData) != 'undefined'){
                                 if(params.withData == 'json'){
 
-                                    ajaxParms['data'] = params.data;
+                                    ajaxParms['data'] = JSON.stringify(params.data);
                                     ajaxParms['contentType'] = 'application/json';
                                     
                                     window.$.ajax(ajaxParms);

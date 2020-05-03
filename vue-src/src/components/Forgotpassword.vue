@@ -7,9 +7,6 @@
           <div class="col-sm-12">
               <form class="form-theme" @submit="doLogin">
                 <div class="row">
-                  <p :class="alert_status">{{message}}</p>
-                </div>
-                <div class="row">
                   <div class="form-group">
                     <label class="control-label">Username:</label>
                     <input type="text" v-model="username" name="username" class="form-control" placeholder="Username">
@@ -38,13 +35,10 @@
       components: {
       },
       data(){
-        // initializing the datas
         return {
           errors:[],
           username:null,
-          password:null,
-          message:"",
-          alert_status:""
+          password:null
         }
       },
       methods:{
@@ -65,17 +59,7 @@
                   this.helper.showMessage('danger','Invalid Username or Password');
                 },
                 success:(resp)=>{
-                  if(resp.status == 'error'){
-                    this.message = resp.message;
-                    this.alert_status = "alert alert-danger";
-                  }else{
-                    this.alert_status = "alert alert-success";
-                    this.message = resp.message;
-                    this.helper.setUserInfo(resp.data);
-                    setTimeout(()=>{ 
-                      window.location.href = "/";                                      
-                    }, 2000);
-                  }
+                  console.log(resp)
                 }
           })
         }

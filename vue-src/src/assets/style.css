@@ -69,4 +69,12 @@ a{
 a:hover{
 	color: #fff;
 	text-decoration: underline;
+	
+}
+.navbar-theme .dropdown-menu{
+	background:rgba(255, 255, 255, 0.3);
+    border: 1px solid;
+}
+.navbar-theme .dropdown-menu a:hover{
+	background:rgba(255, 255, 255, 0.3);
 }
