@@ -1,11 +1,6 @@
 <template>
     <div class="page landing-page">
         <div class="landing-page-full">
-
-           
-
-            vvvvvvvv
-
         </div>
     </div>
 </template>
