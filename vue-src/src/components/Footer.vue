@@ -1,6 +1,11 @@
 <template>
     <!-- Footer -->
+
+
+<footer    class="page-footer font-small blue pt-4" >
+
 <footer class="footer-theme page-footer font-small blue pt-4">
+
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -54,6 +59,7 @@
   <!-- Copyright -->
 
 </footer>
+
 <!-- Footer -->
 </template>
 <script type="text/javascript">
