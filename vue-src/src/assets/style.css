@@ -39,3 +39,8 @@
 .footer-theme{
 	background: #000000;
 }
+
+/* --- rate css-- */
+.checked {
+	color: orange;
+  }

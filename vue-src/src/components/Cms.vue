@@ -14,6 +14,12 @@
                <p class="card-text">sdfsdfsdfsdf sfsdfsdfsfd fsdfsdfsdf sdfsfsdf 
                  sdfsdfsdfsdfsdfsfdsdf</p>
             </div>
+            <!--  -->
+<span  v-on:click=" ischeckedone"  class="fa fa-star "  v-bind:class="{checked: ischecked1}" ></span>
+<span  v-on:click=" ischeckedtwo" class="fa fa-star "  v-bind:class="{checked: ischecked2}"></span>
+<span   v-on:click=" ischeckedthree" class="fa fa-star " v-bind:class="{checked: ischecked3}"></span>
+<span  v-on:click=" ischeckedfour" class="fa fa-star" v-bind:class="{checked: ischecked4}"></span>
+<span  v-on:click=" ischeckedfive"  class="fa fa-star" v-bind:class="{checked: ischecked5}"></span>
             <div class="card-footer py-4">
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
@@ -59,7 +65,12 @@
   data(){
     return {
       slug:"here",
-      content:""
+      content:"",
+      ischecked1:true,
+      ischecked2:false,
+      ischecked3:false,
+      ischecked4:false,
+      ischecked5:false
     }
   },
 
@@ -73,6 +84,16 @@
                 console.log(to)
                 this.slug = this.$route.params.sluging;
             }
-        }
+        },
+       methods: {
+   ischeckedone: function () {
+       alert('Hello ' + this.name + '!')
+      this.data.ischecked1=false
+  },
+  ischeckedtwo: function () {
+      alert('Hello ' + this.name + '!')
+      // this.ischecked1=this.ischecked1?false:true
+  }
+ }
 }
 </script>
