@@ -14,10 +14,24 @@
                <p class="card-text">sdfsdfsdfsdf sfsdfsdfsfd fsdfsdfsdf sdfsfsdf 
                  sdfsdfsdfsdfsdfsfdsdf</p>
             </div>
+
+<div>
+ <label>Rate this movie</label>
+<select v-model="selectOne">
+ <option value=1>1</option>
+  <option value=2>2</option>
+  <option value=3>3</option>
+   <option value=4>4</option>
+  <option value=5>5</option>
+</select> 
+</div>
+<span style="color:yellow"> Your rating {{selectOne}}</span>
             <div class="card-footer py-4">
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
+            
          </div>
+         
       </div>
       
   <div class="col-md-4 mb-4">
@@ -32,8 +46,7 @@
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
          </div>
-      </div>
-      
+  </div>
       <div class="col-md-4 mb-4">
          <div class="card h-100">
             <img  style="width:50%" class="rounded float-left" src="https://images-na.ssl-images-amazon.com/images/I/51A348WXZ8L._AC_SY445_.jpg" alt="movie 1">
@@ -46,7 +59,9 @@
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
          </div>
+         
       </div>
+      
    </div>
 </section>
     </div>
@@ -59,13 +74,14 @@
   data(){
     return {
       slug:"here",
-      content:""
+      content:"",
+      selectOne:""
+    
     }
   },
 
   mounted(){
         this.slug = this.$route.params.sluging;
-        
     
   },
   watch:{
@@ -73,6 +89,13 @@
                 console.log(to)
                 this.slug = this.$route.params.sluging;
             }
-        }
+        },
+       methods: {
+   ischeckedone:function() {
+       alert('Hello ' + this.selectOne+ '!')
+    
+       }
+
+       }
 }
 </script>
