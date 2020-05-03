@@ -4,7 +4,7 @@
 			background-repeat: repeat-y;
 }
 .page{
-        min-height: 1600px
+        min-height: 800px
 
 }
 .navbar-theme {
@@ -38,4 +38,28 @@
 }
 .footer-theme{
 	background: #000000;
+}
+.mt-5{
+	margin-top: 5px;
+}
+.mt-10{
+	margin-top: 10px;
+}
+.mt-15{
+	margin-top: 15px;
+}
+.mt-100{
+	margin-top: 100px
+}
+.mt-200{
+	margin-top: 200px
+}
+.panel-theme{
+	background-color: rgba(255, 255, 255, 0);
+}
+.panel-theme .panel-heading{
+	background-color: rgba(245, 245, 245, 0.63);
+}
+.form-theme .form-control{
+	background-color: rgba(255, 255, 255, 0.7);
 }
