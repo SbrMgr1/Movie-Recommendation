@@ -15,15 +15,28 @@
                  sdfsdfsdfsdfsdfsfdsdf</p>
             </div>
             <!--  -->
-<span  v-on:click=" ischeckedone"  class="fa fa-star "  v-bind:class="{checked: ischecked1}" ></span>
-<span  v-on:click=" ischeckedtwo" class="fa fa-star "  v-bind:class="{checked: ischecked2}"></span>
-<span   v-on:click=" ischeckedthree" class="fa fa-star " v-bind:class="{checked: ischecked3}"></span>
+<!-- <a><button v-on:click=" ischeckedone"  class="fa fa-star "  v-bind:class="{checked: ischecked1}" ></button></a>
+ <!- <span v-on:click=" ischeckedtwo" class="fa fa-star "  v-bind:class="{checked: ischecked2}"></span> -->
+<!--<span   v-on:click=" ischeckedthree" class="fa fa-star " v-bind:class="{checked: ischecked3}"></span>
 <span  v-on:click=" ischeckedfour" class="fa fa-star" v-bind:class="{checked: ischecked4}"></span>
-<span  v-on:click=" ischeckedfive"  class="fa fa-star" v-bind:class="{checked: ischecked5}"></span>
+<span  v-on:click=" ischeckedfive"  class="fa fa-star" v-bind:class="{checked: ischecked5}"></span>  --> 
+<div>
+ <label>Rate this movie</label>
+<select v-model="selectOne">
+ <option value=1>1</option>
+  <option value=2>2</option>
+  <option value=3>3</option>
+   <option value=4>4</option>
+  <option value=5>5</option>
+</select> 
+</div>
+<span style="color:yellow"> Your rating {{selectOne}}</span>
             <div class="card-footer py-4">
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
+            
          </div>
+         
       </div>
       
   <div class="col-md-4 mb-4">
@@ -66,17 +79,13 @@
     return {
       slug:"here",
       content:"",
-      ischecked1:true,
-      ischecked2:false,
-      ischecked3:false,
-      ischecked4:false,
-      ischecked5:false
+      selectOne:""
+    
     }
   },
 
   mounted(){
         this.slug = this.$route.params.sluging;
-        
     
   },
   watch:{
@@ -86,14 +95,11 @@
             }
         },
        methods: {
-   ischeckedone: function () {
-       alert('Hello ' + this.name + '!')
-      this.data.ischecked1=false
-  },
-  ischeckedtwo: function () {
-      alert('Hello ' + this.name + '!')
-      // this.ischecked1=this.ischecked1?false:true
-  }
- }
+   ischeckedone:function() {
+       alert('Hello ' + this.selectOne+ '!')
+    
+       }
+
+       }
 }
 </script>
