@@ -14,12 +14,7 @@
                <p class="card-text">sdfsdfsdfsdf sfsdfsdfsfd fsdfsdfsdf sdfsfsdf 
                  sdfsdfsdfsdfsdfsfdsdf</p>
             </div>
-            <!--  -->
-<!-- <a><button v-on:click=" ischeckedone"  class="fa fa-star "  v-bind:class="{checked: ischecked1}" ></button></a>
- <!- <span v-on:click=" ischeckedtwo" class="fa fa-star "  v-bind:class="{checked: ischecked2}"></span> -->
-<!--<span   v-on:click=" ischeckedthree" class="fa fa-star " v-bind:class="{checked: ischecked3}"></span>
-<span  v-on:click=" ischeckedfour" class="fa fa-star" v-bind:class="{checked: ischecked4}"></span>
-<span  v-on:click=" ischeckedfive"  class="fa fa-star" v-bind:class="{checked: ischecked5}"></span>  --> 
+
 <div>
  <label>Rate this movie</label>
 <select v-model="selectOne">
@@ -51,8 +46,7 @@
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
          </div>
-      </div>
-      
+  </div>
       <div class="col-md-4 mb-4">
          <div class="card h-100">
             <img  style="width:50%" class="rounded float-left" src="https://images-na.ssl-images-amazon.com/images/I/51A348WXZ8L._AC_SY445_.jpg" alt="movie 1">
@@ -65,7 +59,9 @@
                <a href="#" class="btn btn-secondary">See portfolio &raquo;</a>
             </div>
          </div>
+         
       </div>
+      
    </div>
 </section>
     </div>
