@@ -1,5 +1,5 @@
 <template>
-  <div class="full-bg">
+  <div class="full-bg full-bg-landing">
     <Header/>
     <section class="main-body"><router-view/></section>
     <Footer/>
@@ -22,6 +22,7 @@ export default {
     }
   },
   mounted(){
+  
   }
 }
 </script>
