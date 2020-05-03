@@ -1,13 +1,9 @@
 <template>
-    <div class="page landing-page">
-        <div class="landing-page-full">
-            vvvvvvvv
-        </div>
-    </div>
+	<div id="second-layout"></div>
 </template>
 <script type="text/javascript">
-    export default {
-      name: 'Home',
+	export default {
+      name: 'Login',
       components: {
         
       },
@@ -17,7 +13,6 @@
         }
       },
       mounted(){
-
       }
     }
 </script>

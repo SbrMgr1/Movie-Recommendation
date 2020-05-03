@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full-bg">
     <Header/>
     <section class="main-body"><router-view/></section>
     <Footer/>
@@ -22,7 +22,6 @@ export default {
     }
   },
   mounted(){
-    this.api_data = [1,2,3];
   }
 }
 </script>
