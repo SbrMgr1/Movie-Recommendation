@@ -16,6 +16,9 @@
                     <input type="password" name="password" class="form-control" placeholder="Password">
                   </div>
                   <div class="form-group">
+                    <router-link to="/forgot-password">Forgot your password?</router-link>
+                  </div>
+                  <div class="form-group">
                     <button type="submit" class="btn btn-primary">Login</button>
                   </div>
                 </div>
