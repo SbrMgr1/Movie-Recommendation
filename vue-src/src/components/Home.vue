@@ -1,7 +1,7 @@
 <template>
     <div class="page landing-page">
         <div class="landing-page-full">
-            jhklhgkl
+           
         </div>
     </div>
 </template>
@@ -9,7 +9,7 @@
     export default {
       name: 'Home',
       components: {
-        
+
       },
       data(){
         return {
