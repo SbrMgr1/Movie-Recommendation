@@ -1,11 +1,7 @@
 <template>
 
-  <div>
-    <Header></Header>
-
   <div class="full-bg">
     <Header/>
-
     <section class="main-body"><router-view/></section>
     <Footer/>
   </div>
