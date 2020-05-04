@@ -18,5 +18,8 @@ module.exports = class Api {
 	getUserInfoApi(){
 		return this.getApiUrl()+'/users';//+{id} with get request
 	}
+	getTopTrendingMovieApi(){
+		return this.getApiUrl()+'/toptrending/us';
+	}
 	
 }
