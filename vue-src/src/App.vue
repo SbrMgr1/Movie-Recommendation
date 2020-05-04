@@ -1,6 +1,6 @@
 <template>
 
-  <div class="full-bg">
+  <div :class="fill_bg">
     <Header/>
     <section class="main-body"><router-view/></section>
     <Footer/>
@@ -22,6 +22,7 @@ export default {
   },
   data(){
     return {
+      fill_bg:(this.helper.getUserInfo().userId > 0?'':'full-bg'),
       api_data:[]
     }
   },

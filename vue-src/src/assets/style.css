@@ -48,11 +48,33 @@
 .mt-15{
 	margin-top: 15px;
 }
+.mt-30{
+	margin-top: 30px;
+}
 .mt-100{
 	margin-top: 100px
 }
 .mt-200{
 	margin-top: 200px
+}
+
+.mb-5{
+	margin-bottom: 5px;
+}
+.mb-10{
+	margin-bottom: 10px;
+}
+.mb-15{
+	margin-bottom: 15px;
+}
+.mb-30{
+	margin-bottom: 30px;
+}
+.mb-100{
+	margin-bottom: 100px
+}
+.mb-200{
+	margin-bottom: 200px
 }
 .panel-theme{
 	background-color: rgba(255, 255, 255, 0);
@@ -69,6 +91,14 @@ a{
 a:hover{
 	color: #fff;
 	text-decoration: underline;
+	
+}
+.navbar-theme .dropdown-menu{
+	background:rgba(255, 255, 255, 0.3);
+    border: 1px solid;
+}
+.navbar-theme .dropdown-menu a:hover{
+	background:rgba(255, 255, 255, 0.3);
 }
 /* --- rate css-- */
 .checked {

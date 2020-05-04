@@ -16,8 +16,15 @@
         <li>
             <router-link to="/contact-us">Contact Us</router-link>
         </li>
-        <li>
-            <router-link to="/login">Login</router-link>
+        <li v-if="displayName == '' ">
+          <router-link to="/login">Login</router-link>
+        </li>
+        <li v-if="displayName != '' " class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">{{displayName}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a v-on:click="logout">Logout</a></li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -27,12 +34,18 @@
 export default {
   name: 'Header',
   props: {
-    msg: String,
-    ram:String
   },
   data(){
     return {
-      sita:'hare ram'
+      displayName:this.helper.getUserInfo().displayName
+    }
+  },
+  methods:{
+    logout:function(e){
+      this.helper.unsetUserInfo();
+      this.helper.setLocalMessage("success","Logout successfully.");
+      window.location.href = "/login"; 
+      e.preventDefalt();    
     }
   },
   mounted(){
