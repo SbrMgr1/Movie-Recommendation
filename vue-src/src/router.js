@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/Home.vue'
+import ItemDetails from './components/ItemDetails.vue'
 import About from './components/About.vue'
 import Cms from './components/Cms.vue'
 import Login from './components/Login.vue'
@@ -17,16 +18,14 @@ export default new Router({
 			component:Home
 		},
 		{
+			path:'/details/:id',
+			name:'ItemDetails',
+			component:ItemDetails
+		},
+		{
 			path:'/login',
 			name:'Login',
-			component:Login,
-			children:[
-				{
-					path:'about',
-					name:'About',
-					component:About
-				}
-			]
+			component:Login
 		},
 		{
 			path:'/about',
