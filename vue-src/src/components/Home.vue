@@ -3,7 +3,7 @@
       <div class="container-fluid">
           <h3 class="col-sm-12" v-if="api_datas.length>0">Top Trending Movies</h3>
           <div class="col-sm-2 mb-30" v-for="(api_data,index) in api_datas" :key="index">
-              <img class="movie-image img-responsive" :src="api_data.url">
+              <img class="movie-image img-responsive" :title="api_data.title" :src="api_data.url">
           </div>
       </div>
     </div>
