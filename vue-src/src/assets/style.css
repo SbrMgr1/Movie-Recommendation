@@ -103,4 +103,13 @@ a:hover{
 /* --- rate css-- */
 .checked {
 	color: orange;
-  }
+}
+.movie-image{
+height: 300px;
+width: 100%;
+object-fit: cover;
+}
+.similar-movie-recommended{
+max-height: 1200px;
+overflow-y: scroll;
+}

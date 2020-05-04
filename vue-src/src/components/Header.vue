@@ -20,10 +20,10 @@
           <router-link to="/login">Login</router-link>
         </li>
         <li v-if="displayName != '' " class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">{{displayName}}<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{displayName}}<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Profile</a></li>
-            <li><a v-on:click="logout">Logout</a></li>
+            <li><a href="#" v-on:click="logout">Logout</a></li>
           </ul>
         </li>
       </ul>
