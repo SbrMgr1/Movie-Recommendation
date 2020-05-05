@@ -9,19 +9,38 @@
               <img class="img-responsive" :title="movie_details.title" :src="movie_details.url" />
             </div>
             <div class="col-sm-4 mb-30">
+              <img
+                style="width:100px;float:left;margin-right:10px"
+                src="https://png.pngtree.com/png-vector/20190223/ourlarge/pngtree-vector-play-icon-png-image_695339.jpg"
+                alt="play"
+              />
               <h4 class>
                 Score:{{movie_details.score}}
                 <br />
                 Average Vote:{{movie_details.vote_average}}
                 <br />
                 Vote Count:{{movie_details.vote_count}}
+                <br />Rate This movie
                 <br />
-                <h4>Rate This movie</h4>
-                <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: isActive }"></span>
-                <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: isActivetwo }"></span>
-                <span class="fa fa-star" v-on:click="three" v-bind:class="{ checked: isActivethree }" ></span>
-                <span class="fa fa-star" v-on:click="four" v-bind:class="{ checked: isActivefour }"></span>
-                <span class="fa fa-star" v-on:click="five" v-bind:class="{ checked: isActivefive }"></span>
+                <div style="margin-left:80px">
+                  <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: isActive }"></span>
+                  <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: isActivetwo }"></span>
+                  <span
+                    class="fa fa-star"
+                    v-on:click="three"
+                    v-bind:class="{ checked: isActivethree }"
+                  ></span>
+                  <span
+                    class="fa fa-star"
+                    v-on:click="four"
+                    v-bind:class="{ checked: isActivefour }"
+                  ></span>
+                  <span
+                    class="fa fa-star"
+                    v-on:click="five"
+                    v-bind:class="{ checked: isActivefive }"
+                  ></span>
+                </div>
                 <br />
                 <span v-on:click="totalrating">click here see rating {{count}}</span>
               </h4>
@@ -166,7 +185,7 @@ export default {
       if (this.isActivefive) {
         this.count = 5;
       }
-      // remove this alert  part if  its working 
+      // remove this alert  part if  its working
       alert(this.count);
     }
   },
