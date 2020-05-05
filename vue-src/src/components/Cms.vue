@@ -1,7 +1,10 @@
 <template>
-  <div>
+ <div class="page mt-200">
     <h1>{{slug}}</h1>
     <p>{{content}}</p>
+    
+    
+
     <section id="services" class="container">
       <h2 class="display-4 text-center mt-5 mb-3">Movies</h2>
 
