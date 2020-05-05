@@ -16,9 +16,16 @@
                 <br />
                 Vote Count:{{movie_details.vote_count}}
                 <br />
-                dsfsdf
+                <h4>Rate This movie</h4>
+                <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: isActive }"></span>
+                <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: isActivetwo }"></span>
+                <span class="fa fa-star" v-on:click="three" v-bind:class="{ checked: isActivethree }" ></span>
+                <span class="fa fa-star" v-on:click="four" v-bind:class="{ checked: isActivefour }"></span>
+                <span class="fa fa-star" v-on:click="five" v-bind:class="{ checked: isActivefive }"></span>
+                <br />
+                <span v-on:click="totalrating">click here see rating {{count}}</span>
               </h4>
-            </div>sadfghjkl
+            </div>
           </div>
           <div class="col-sm-2">
             <h3 class="col-sm-12">Similar Movies</h3>
@@ -47,7 +54,13 @@ export default {
     return {
       movie_details: {},
       api_datas: [],
-      movieId: 0
+      movieId: 0,
+      count: 0,
+      isActive: false,
+      isActivetwo: false,
+      isActivefour: false,
+      isActivethree: false,
+      isActivefive: false
     };
   },
   watch: {
@@ -80,6 +93,81 @@ export default {
           });
         }
       }
+    },
+    one: function() {
+      //  alert('Hello ' + this.selectOne+ '!')
+      this.isActive = !this.isActive ? true : false;
+      if (!this.isActive) {
+        this.isActivetwo = false;
+        this.isActivethree = false;
+        this.isActivefour = false;
+        this.isActivefive = false;
+      }
+    },
+    two: function() {
+      this.isActivetwo = !this.isActivetwo ? true : false;
+      if (this.isActivetwo) {
+        this.isActive = true;
+      }
+      if (!this.isActivetwo) {
+        this.isActivethree = false;
+        this.isActivefour = false;
+        this.isActivefive = false;
+      }
+    },
+    three: function() {
+      this.isActivethree = !this.isActivethree ? true : false;
+
+      if (this.isActivethree) {
+        this.isActive = true;
+        this.isActivetwo = true;
+      }
+      if (!this.isActivethree) {
+        this.isActivefour = false;
+        this.isActivefive = false;
+      }
+    },
+    four: function() {
+      this.isActivefour = !this.isActivefour ? true : false;
+
+      if (this.isActivefour) {
+        this.isActive = true;
+        this.isActivetwo = true;
+        this.isActivethree = true;
+      }
+      if (!this.isActivefour) {
+        this.isActivefive = false;
+      }
+    },
+    five: function() {
+      this.isActivefive = !this.isActivefive ? true : false;
+      if (this.isActivefive) {
+        this.isActive = true;
+        this.isActivetwo = true;
+        this.isActivethree = true;
+        this.isActivefour = true;
+      }
+    },
+    totalrating: function() {
+      if (this.isActive) {
+        this.count = 1;
+      } else {
+        this.count = 0;
+      }
+      if (this.isActivetwo) {
+        this.count = 2;
+      }
+      if (this.isActivethree) {
+        this.count = 3;
+      }
+      if (this.isActivefour) {
+        this.count = 4;
+      }
+      if (this.isActivefive) {
+        this.count = 5;
+      }
+      // remove this alert  part if  its working 
+      alert(this.count);
     }
   },
   mounted() {
