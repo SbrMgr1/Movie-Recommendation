@@ -1,8 +1,14 @@
 <template>
     <div class="page">
       <div class="container-fluid">
-          <h3 class="col-sm-12" v-if="api_datas.length>0">Top Trending Movies</h3>
-          <div class="col-sm-2 mb-30" v-for="(api_data,index) in api_datas" :key="index">
+          <h3 class="col-sm-12" v-if="topTrendingMovies.length>0">Top Trending Movies</h3>
+          <div class="col-sm-2 mb-30" v-for="(api_data,index) in topTrendingMovies" :key="index">
+              <router-link :to="{path: '/details/' + api_data.movieId}"><img class="movie-image img-responsive" :title="api_data.title" :src="api_data.url"></router-link>
+          </div>
+      </div>
+      <div class="container-fluid">
+          <h3 class="col-sm-12" v-if="userTopMovies.length>0">Top 10 Recommendations</h3>
+          <div class="col-sm-2 mb-30" v-for="(api_data,index) in topTrendingMovies" :key="index">
               <router-link :to="{path: '/details/' + api_data.movieId}"><img class="movie-image img-responsive" :title="api_data.title" :src="api_data.url"></router-link>
           </div>
       </div>
@@ -16,7 +22,8 @@
       },
       data(){
         return {
-          api_datas:[]
+          topTrendingMovies:[],
+          userTopMovies:[]
         }
       },
       mounted(){
@@ -33,7 +40,21 @@
                       if(resp.status == 'error'){
                         window.location.href = "/";
                       }else{
-                        this.api_datas = resp.data;
+                        this.topTrendingMovies = resp.data;
+                      }
+                    }
+              })
+              this.helper.request({
+                    type: 'post',
+                    auth:false,
+                    withData:'json',
+                    url: this.api.getUserTopMoviesApi(),
+                    dataType:'json',
+                    success:(resp)=>{
+                      if(resp.status == 'error'){
+                        window.location.href = "/";
+                      }else{
+                        this.userTopMovies = resp.data;
                       }
                     }
               })
