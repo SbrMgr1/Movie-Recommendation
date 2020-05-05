@@ -113,3 +113,14 @@ object-fit: cover;
 max-height: 1200px;
 overflow-y: scroll;
 }
+
+.blinking{
+    animation:blinkingText 1.7s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #eaf0f3;    }
+    49%{    color: rgb(22, 212, 54); }
+    30%{    color: transparent; }
+    80%{    color:transparent;  }
+    100%{   color: #FFD700;    }
+}
