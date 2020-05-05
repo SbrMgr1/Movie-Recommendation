@@ -14,7 +14,7 @@
               Vote Count:{{movie_details.vote_count}}<br/>
             </h4>
             </div>
-            
+            sadfghjkl
           </div>
           <div class="col-sm-2">
             <h3 class="col-sm-12">Similar Movies</h3>

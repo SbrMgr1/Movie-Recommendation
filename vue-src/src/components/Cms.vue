@@ -22,16 +22,6 @@
               </p>
             </div>
 
-            <!-- <div>
- <label>Rate this movie</label>
-<select v-model="selectOne">
- <option value=1>1</option>
-  <option value=2>2</option>
-  <option value=3>3</option>
-   <option value=4>4</option>
-  <option value=5>5</option>
-</select> 
-            </div>-->
             <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: isActive }"></span>
             <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: isActivetwo }"></span>
             <span class="fa fa-star" v-on:click="three" v-bind:class="{ checked: isActivethree }"></span>
