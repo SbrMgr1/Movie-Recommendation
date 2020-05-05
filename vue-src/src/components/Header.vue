@@ -3,28 +3,35 @@
     <div class="container">
       <div class="navbar-header">
         <router-link class="navbar-brand" to="/">
-          Home
+          <div style="margin-left:300px">Home</div>
         </router-link>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li>
-            <router-link to="/cms/privacy-policy">Privacy and Policy</router-link>
+          <router-link to="/cms/privacy-policy">Now On Cinema</router-link>
         </li>
-      
+
         <li>
-            <router-link to="/ItemDetails">ItemDetails</router-link>
+          <router-link to="/ItemDetails">ItemDetails</router-link>
         </li>
-          <li>
-            <router-link to="/about">About</router-link>
+        <li>
+          <router-link to="/about">About</router-link>
         </li>
         <li v-if="displayName == '' ">
           <router-link to="/login">Login</router-link>
         </li>
         <li v-if="displayName != '' " class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{displayName}}<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {{displayName}}
+            <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#" v-on:click="logout">Logout</a></li>
+            <li>
+              <a href="#">Profile</a>
+            </li>
+            <li>
+              <a href="#" v-on:click="logout">Logout</a>
+            </li>
           </ul>
         </li>
       </ul>
@@ -33,24 +40,21 @@
 </template>
 <script>
 export default {
-  name: 'Header',
-  props: {
-  },
-  data(){
+  name: "Header",
+  props: {},
+  data() {
     return {
-      displayName:this.helper.getUserInfo().displayName
-    }
+      displayName: this.helper.getUserInfo().displayName
+    };
   },
-  methods:{
-    logout:function(e){
+  methods: {
+    logout: function(e) {
       this.helper.unsetUserInfo();
-      this.helper.setLocalMessage("success","Logout successfully.");
-      window.location.href = "/login"; 
-      e.preventDefalt();    
+      this.helper.setLocalMessage("success", "Logout successfully.");
+      window.location.href = "/login";
+      e.preventDefalt();
     }
   },
-  mounted(){
-
-  }
-}
+  mounted() {}
+};
 </script>
