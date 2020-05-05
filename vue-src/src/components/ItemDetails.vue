@@ -12,7 +12,7 @@
               <img
                 style="width:100px;float:left;margin-right:10px"
                 src="https://png.pngtree.com/png-vector/20190223/ourlarge/pngtree-vector-play-icon-png-image_695339.jpg"
-                alt="play"
+                alt="play btn"
               />
               <h4 class>
                 Score:{{movie_details.score}}
@@ -23,22 +23,22 @@
                 <br />Rate This movie
                 <br />
                 <div style="margin-left:80px">
-                  <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: isActive }"></span>
-                  <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: isActivetwo }"></span>
+                  <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: count>=1 }"></span>
+                  <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: count>=2 }"></span>
                   <span
                     class="fa fa-star"
                     v-on:click="three"
-                    v-bind:class="{ checked: isActivethree }"
+                    v-bind:class="{ checked: count>=3 }"
                   ></span>
                   <span
                     class="fa fa-star"
                     v-on:click="four"
-                    v-bind:class="{ checked: isActivefour }"
+                    v-bind:class="{ checked: count>=4 }"
                   ></span>
                   <span
                     class="fa fa-star"
                     v-on:click="five"
-                    v-bind:class="{ checked: isActivefive }"
+                    v-bind:class="{ checked: count>=5 }"
                   ></span>
                 </div>
                 <br />
@@ -74,7 +74,7 @@ export default {
       movie_details: {},
       api_datas: [],
       movieId: 0,
-      count: 0,
+      count: 3,
       isActive: false,
       isActivetwo: false,
       isActivefour: false,
@@ -122,6 +122,7 @@ export default {
         this.isActivefour = false;
         this.isActivefive = false;
       }
+      this.count = 1;
     },
     two: function() {
       this.isActivetwo = !this.isActivetwo ? true : false;
@@ -133,6 +134,7 @@ export default {
         this.isActivefour = false;
         this.isActivefive = false;
       }
+      this.count = 2;
     },
     three: function() {
       this.isActivethree = !this.isActivethree ? true : false;
@@ -145,6 +147,7 @@ export default {
         this.isActivefour = false;
         this.isActivefive = false;
       }
+      this.count = 3;
     },
     four: function() {
       this.isActivefour = !this.isActivefour ? true : false;
@@ -157,6 +160,7 @@ export default {
       if (!this.isActivefour) {
         this.isActivefive = false;
       }
+      this.count = 4;
     },
     five: function() {
       this.isActivefive = !this.isActivefive ? true : false;
@@ -166,6 +170,7 @@ export default {
         this.isActivethree = true;
         this.isActivefour = true;
       }
+      this.count = 5;
     },
     totalrating: function() {
       if (this.isActive) {
