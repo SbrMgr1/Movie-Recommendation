@@ -10,11 +10,12 @@
         <li>
             <router-link to="/cms/privacy-policy">Privacy and Policy</router-link>
         </li>
+      
         <li>
-            <router-link to="/cms/about">About</router-link>
+            <router-link to="/ItemDetails">Contact Us</router-link>
         </li>
-        <li>
-            <router-link to="/contact-us">Contact Us</router-link>
+          <li>
+            <router-link to="/about">About</router-link>
         </li>
         <li v-if="displayName == '' ">
           <router-link to="/login">Login</router-link>
