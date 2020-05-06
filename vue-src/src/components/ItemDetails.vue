@@ -22,17 +22,17 @@
                     alt="play btn"
                   />
                   <div>
-                    <div class="form-group">Score: {{movie_details.score}}</div>
-                    <div class="form-group">Average Vote: {{movie_details.vote_average}}</div>
-                    <div class="form-group">Vote Count: {{movie_details.vote_count}}</div>
+                    <div class="form-group"><span class="text-bold">Score:</span> {{movie_details.score}}</div>
+                    <div class="form-group"><span class="text-bold">Average Vote:</span> {{movie_details.vote_average}}</div>
+                    <div class="form-group"><span class="text-bold">Vote Count:</span> {{movie_details.vote_count}}</div>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group mt-15">
-                    <div class="pull-left">Rate this movie</div>
-                    <div class="pull-left" style="margin-left: 5px">
+                    <div class="pull-left form-group">Rate this movie</div>
+                    <div class="pull-left" style="margin-left:5px">
                       <span
                         class="fa fa-star"
                         v-on:click="one"
@@ -60,6 +60,14 @@
                       ></span>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group"><span class="text-bold">Director:</span> {{movie_details.director}}</div>
+                  <div class="form-group"><span class="text-bold">Genres:</span> {{movie_details.genres.join(", ")}}</div>
+                  <div class="form-group"><span class="text-bold">Tags:</span> {{movie_details.keywords.join(", ")}}</div>
+                  <div class="form-group"><span class="text-bold">OverView:</span> {{movie_details.overview}}</div>
                 </div>
               </div>
             </div>

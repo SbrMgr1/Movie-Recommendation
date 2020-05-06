@@ -137,3 +137,6 @@ overflow-y: scroll;
     text-align: -webkit-center;
     padding-top: 400px;
 }
+.text-bold{
+	font-weight: bold;
+}
