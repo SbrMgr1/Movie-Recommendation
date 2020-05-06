@@ -25,21 +25,9 @@
                 <div style="margin-left:80px">
                   <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: count>=1 }"></span>
                   <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: count>=2 }"></span>
-                  <span
-                    class="fa fa-star"
-                    v-on:click="three"
-                    v-bind:class="{ checked: count>=3 }"
-                  ></span>
-                  <span
-                    class="fa fa-star"
-                    v-on:click="four"
-                    v-bind:class="{ checked: count>=4 }"
-                  ></span>
-                  <span
-                    class="fa fa-star"
-                    v-on:click="five"
-                    v-bind:class="{ checked: count>=5 }"
-                  ></span>
+                  <span class="fa fa-star" v-on:click="three" v-bind:class="{ checked: count>=3 }"></span>
+                  <span class="fa fa-star" v-on:click="four" v-bind:class="{ checked: count>=4 }"></span>
+                  <span class="fa fa-star" v-on:click="five" v-bind:class="{ checked: count>=5 }"></span>
                 </div>
                 <br />
                 <span>click here see rating {{count}}</span>
