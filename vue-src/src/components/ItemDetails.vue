@@ -144,7 +144,6 @@ export default {
         }
       });
     },
-
     rateThisMovie: function() {
       this.movieId = this.$route.params.id;
       this.helper.request({
