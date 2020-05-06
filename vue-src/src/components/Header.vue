@@ -22,9 +22,9 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li>
+            <!-- <li>
               <a href="#">Profile</a>
-            </li>
+            </li> -->
             <li>
               <a href="#" v-on:click="logout">Logout</a>
             </li>
