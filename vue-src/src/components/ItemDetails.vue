@@ -6,7 +6,12 @@
           <div class="col-sm-10">
             <h3 class="col-sm-12 text-center">{{movie_details.title}}</h3>
             <div class="col-sm-8 mb-30">
-             <img class="img-responsive" :alt="movie_details.title" :title="movie_details.title" :src="movie_details.url" />
+              <img
+                class="img-responsive"
+                :alt="movie_details.title"
+                :title="movie_details.title"
+                :src="movie_details.url"
+              />
             </div>
             <div class="col-sm-4 mb-30" style="font-size: 20px">
               <div class="row">
@@ -84,18 +89,17 @@ export default {
   name: "Home",
   components: {},
   data() {
-    if(this.helper.getUserInfo().userId>0){
+    if (this.helper.getUserInfo().userId > 0) {
       return {
         movie_details: {},
         api_datas: [],
         movieId: 0,
         count: 0,
-        userId:this.helper.getUserInfo().userId
+        userId: this.helper.getUserInfo().userId
       };
-    }else{
+    } else {
       window.location.href = "/";
     }
-    
   },
   watch: {
     $route(to) {
@@ -104,60 +108,60 @@ export default {
     }
   },
   methods: {
-    fetchOldRatingInfo:function(){
+    fetchOldRatingInfo: function() {
       if (this.userId > 0) {
-          this.movieId = this.$route.params.id;
-          this.helper.request({
-            type: "post",
-            auth: false,
-            withData: "json",
-            url: this.api.getRatingApi() + "/" + this.userId+"/"+this.movieId,
-            dataType: "json",
-            success: resp => {
-              if(typeof(resp.data) != 'undefined'){
-                this.count = resp.data;
-              }
+        this.movieId = this.$route.params.id;
+        this.helper.request({
+          type: "post",
+          auth: false,
+          withData: "json",
+          url: this.api.getRatingApi() + "/" + this.userId + "/" + this.movieId,
+          dataType: "json",
+          success: resp => {
+            if (typeof resp.data != "undefined") {
+              this.count = resp.data;
             }
-          });
-        }
+          }
+        });
+      }
     },
     callApi: function() {
-          this.movieId = this.$route.params.id;
-          this.helper.request({
-            type: "post",
-            auth: false,
-            withData: "json",
-            url: this.api.getTopSimilarMovieApi() + "/" + this.movieId,
-            dataType: "json",
-            success: resp => {
-              if (resp.status == "error") {
-                window.location.href = "/";
-              } else {
-                this.movie_details = resp.data.movie_details;
-                this.api_datas = resp.data.other_similar_movies;
-                this.fetchOldRatingInfo();
-              }
-            }
-          });
+      this.movieId = this.$route.params.id;
+      this.helper.request({
+        type: "post",
+        auth: false,
+        withData: "json",
+        url: this.api.getTopSimilarMovieApi() + "/" + this.movieId,
+        dataType: "json",
+        success: resp => {
+          if (resp.status == "error") {
+            window.location.href = "/";
+          } else {
+            this.movie_details = resp.data.movie_details;
+            this.api_datas = resp.data.other_similar_movies;
+            this.fetchOldRatingInfo();
+          }
+        }
+      });
     },
 
-    rateThisMovie:function(){
-            this.movieId = this.$route.params.id;
-            this.helper.request({
-              type: "post",
-              auth: false,
-              withData: "json",
-              url: this.api.getUpdateRatingApi(),
-              data:{
-                userId:this.userId,
-                movieId:this.movieId,
-                rating:this.count
-              },
-              dataType: "json",
-              success: resp => {
-                console.log(resp)
-              }
-            });
+    rateThisMovie: function() {
+      this.movieId = this.$route.params.id;
+      this.helper.request({
+        type: "post",
+        auth: false,
+        withData: "json",
+        url: this.api.getUpdateRatingApi(),
+        data: {
+          userId: this.userId,
+          movieId: this.movieId,
+          rating: this.count
+        },
+        dataType: "json",
+        success: resp => {
+          console.log(resp);
+        }
+      });
     },
     one: function() {
       this.isActive = !this.isActive ? true : false;
