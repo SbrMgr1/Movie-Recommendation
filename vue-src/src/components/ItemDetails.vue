@@ -42,7 +42,7 @@
                   ></span>
                 </div>
                 <br />
-                <span v-on:click="totalrating">click here see rating {{count}}</span>
+                <span>click here see rating {{count}}</span>
               </h4>
             </div>
           </div>
@@ -171,27 +171,6 @@ export default {
         this.isActivefour = true;
       }
       this.count = 5;
-    },
-    totalrating: function() {
-      if (this.isActive) {
-        this.count = 1;
-      } else {
-        this.count = 0;
-      }
-      if (this.isActivetwo) {
-        this.count = 2;
-      }
-      if (this.isActivethree) {
-        this.count = 3;
-      }
-      if (this.isActivefour) {
-        this.count = 4;
-      }
-      if (this.isActivefive) {
-        this.count = 5;
-      }
-      // remove this alert  part if  its working
-      alert(this.count);
     }
   },
   mounted() {
