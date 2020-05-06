@@ -124,3 +124,16 @@ overflow-y: scroll;
     80%{    color:transparent;  }
     100%{   color: #FFD700;    }
 }
+#loader{
+	position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff82;
+    top: 0;
+    display: none;
+    font-size: 30px;
+    text-align: center;
+    text-align: -webkit-center;
+    padding-top: 400px;
+}

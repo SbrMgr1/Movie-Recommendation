@@ -117,7 +117,7 @@ export default {
           withData: "json",
           url: this.api.getRatingApi() + "/" + this.userId + "/" + this.movieId,
           dataType: "json",
-          success: resp => {
+          success: (resp) => {
             if (typeof resp.data != "undefined") {
               this.count = resp.data;
             }
@@ -133,11 +133,15 @@ export default {
         withData: "json",
         url: this.api.getTopSimilarMovieApi() + "/" + this.movieId,
         dataType: "json",
-        success: resp => {
+        success: (resp) => {
+
           if (resp.status == "error") {
             window.location.href = "/";
           } else {
             this.movie_details = resp.data.movie_details;
+            
+            console.log(this.movie_details)
+
             this.api_datas = resp.data.other_similar_movies;
             this.fetchOldRatingInfo();
           }
@@ -157,7 +161,7 @@ export default {
           rating: this.count
         },
         dataType: "json",
-        success: resp => {
+        success: (resp) => {
           console.log(resp);
         }
       });

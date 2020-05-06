@@ -142,7 +142,9 @@ module.exports = class Helper {
                                 }
                                 
                             }
-                            
+                            ajaxParms['beforeSend'] = ()=>{
+                                document.querySelector('#loader').style.display = 'block';
+                            };
                             ajaxParms['url'] = params.url;
                             ajaxParms['type'] = params.type;
                             ajaxParms['xhr'] = function () {
@@ -168,6 +170,8 @@ module.exports = class Helper {
                                                     return myXhr;
                                                 };
                             ajaxParms['complete'] = (resp) =>{
+                                    document.querySelector('#loader').style.display = 'none';
+                                    
                                     if (typeof(params.complete) == 'function') {
                                         if(resp.status == 403){//credials
                                             params.complete(resp);
@@ -191,6 +195,7 @@ module.exports = class Helper {
                                     
                                 };
                             ajaxParms['success'] = (resp) =>{
+
                                     if (typeof(params.success) == 'function') {
                                         params.success(resp);
                                     }
