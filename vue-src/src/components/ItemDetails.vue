@@ -6,7 +6,7 @@
           <div class="col-sm-10">
             <h3 class="col-sm-12 text-center">{{movie_details.title}}</h3>
             <div class="col-sm-8 mb-30">
-              <img class="img-responsive" :title="movie_details.title" :src="movie_details.url" />
+              <img class="img-responsive" alt="movie_details.title" :title="movie_details.title" :src="movie_details.url" />
             </div>
             <div class="col-sm-4 mb-30">
               <img
@@ -52,6 +52,7 @@
               <div class="col-sm-12 mb-30" v-for="(api_data,index) in api_datas" :key="index">
                 <router-link :to="{path: '/details/' + api_data.movieId}">
                   <img
+                    alt="api_data.title"
                     class="movie-image img-responsive"
                     :title="api_data.title"
                     :src="api_data.url"
