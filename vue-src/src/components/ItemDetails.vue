@@ -24,7 +24,7 @@
                   <div>
                     <div class="form-group">Score: {{movie_details.score}}</div>
                     <div class="form-group">Average Vote: {{movie_details.vote_average}}</div>
-                    <div class="form-group">Vote Count: {{movie_details.vote_count}}</div>
+                    <!-- <div class="form-group">Vote Count: {{movie_details.vote_count}}</div> -->
                   </div>
                 </div>
               </div>
