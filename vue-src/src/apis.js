@@ -31,5 +31,8 @@ module.exports = class Api {
 	getUpdateRatingApi(){
 		return this.getApiUrl()+'/updaterating';
 	}
+	getRatingApi(){
+		return this.getApiUrl()+'/rating';//+{userId}+{movieId}
+	}
 	
 }
