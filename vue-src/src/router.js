@@ -37,5 +37,6 @@ export default new Router({
 			name:'Cms',
 			component:Cms
 		}
-	]
+	],
+	duplicateNavigationPolicy: 'reload'
 }) 
