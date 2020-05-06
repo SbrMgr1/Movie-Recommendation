@@ -11,20 +11,11 @@
     <!-- Grid row -->
     <div class="row">
 
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-        <h5 class="text-uppercase">Footer Content</h5>
-        <p>Here you can use rows and columns to organize your footer content.</p>
-
-      </div>
-      <!-- Grid column -->
 
       <hr class="clearfix w-100 d-md-none pb-3">
 
       <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+      <div class="col-md-5 mb-md-0 mb-3 col-md-offset-7">
 
         <!-- Links -->
         <h5 class="text-uppercase">Other Links</h5>
@@ -52,7 +43,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <router-link to="/">onlinemovie.com</router-link>
+    <router-link to="/">home.com</router-link>
   </div>
   <!-- Copyright -->
 
