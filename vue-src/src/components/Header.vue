@@ -10,10 +10,6 @@
         <li>
           <router-link to="/cms/privacy-policy">Now On Cinema</router-link>
         </li>
-
-        <li>
-          <router-link to="/ItemDetails">ItemDetails</router-link>
-        </li>
         <li>
           <router-link to="/about">About</router-link>
         </li>
@@ -26,9 +22,9 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li>
+            <!-- <li>
               <a href="#">Profile</a>
-            </li>
+            </li> -->
             <li>
               <a href="#" v-on:click="logout">Logout</a>
             </li>
