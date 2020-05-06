@@ -6,41 +6,55 @@
           <div class="col-sm-10">
             <h3 class="col-sm-12 text-center">{{movie_details.title}}</h3>
             <div class="col-sm-8 mb-30">
-              <img class="img-responsive" :alt="movie_details.title" :title="movie_details.title" :src="movie_details.url" />
+             <img class="img-responsive" :alt="movie_details.title" :title="movie_details.title" :src="movie_details.url" />
             </div>
             <div class="col-sm-4 mb-30" style="font-size: 20px">
               <div class="row">
                 <div class="col-sm-12">
                   <img
-                style="width:130px;float:left;margin-right:10px"
-                src="https://png.pngtree.com/png-vector/20190223/ourlarge/pngtree-vector-play-icon-png-image_695339.jpg"
-                alt="play btn"
-              />
-              <div >
-                <div class="form-group">
-                  Score: {{movie_details.score}}
-                </div>
-                <div class="form-group">
-                  Average Vote: {{movie_details.vote_average}}
-                </div>
-                <div class="form-group">
-                  Vote Count: {{movie_details.vote_count}}
-                </div>
-              </div>
+                    style="width:130px;float:left;margin-right:10px"
+                    src="https://png.pngtree.com/png-vector/20190223/ourlarge/pngtree-vector-play-icon-png-image_695339.jpg"
+                    alt="play btn"
+                  />
+                  <div>
+                    <div class="form-group">Score: {{movie_details.score}}</div>
+                    <div class="form-group">Average Vote: {{movie_details.vote_average}}</div>
+                    <div class="form-group">Vote Count: {{movie_details.vote_count}}</div>
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
-                    <div class="form-group mt-15">
-                  <div class="pull-left">Rate this movie</div>
-                  <div class="pull-left" style="margin-left: 5px">
-                  <span class="fa fa-star" v-on:click="one" v-bind:class="{ checked: count>=1 }"></span>
-                  <span class="fa fa-star" v-on:click="two" v-bind:class="{ checked: count>=2 }"></span>
-                  <span class="fa fa-star" v-on:click="three" v-bind:class="{ checked: count>=3 }"></span>
-                  <span class="fa fa-star" v-on:click="four" v-bind:class="{ checked: count>=4 }"></span>
-                  <span class="fa fa-star" v-on:click="five" v-bind:class="{ checked: count>=5 }"></span>
-                </div>
-                </div>
+                  <div class="form-group mt-15">
+                    <div class="pull-left">Rate this movie</div>
+                    <div class="pull-left" style="margin-left: 5px">
+                      <span
+                        class="fa fa-star"
+                        v-on:click="one"
+                        v-bind:class="{ checked: count>=1 }"
+                      ></span>
+                      <span
+                        class="fa fa-star"
+                        v-on:click="two"
+                        v-bind:class="{ checked: count>=2 }"
+                      ></span>
+                      <span
+                        class="fa fa-star"
+                        v-on:click="three"
+                        v-bind:class="{ checked: count>=3 }"
+                      ></span>
+                      <span
+                        class="fa fa-star"
+                        v-on:click="four"
+                        v-bind:class="{ checked: count>=4 }"
+                      ></span>
+                      <span
+                        class="fa fa-star"
+                        v-on:click="five"
+                        v-bind:class="{ checked: count>=5 }"
+                      ></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -108,73 +122,69 @@ export default {
         }
       }
     },
-    
-    rateThisMovie:function(){
-        if (typeof this.$route.params.id == "undefined") {
-          window.location.href = "/";
-        } else {
-          if (this.helper.getUserInfo().userId > 0) {
-            this.movieId = this.$route.params.id;
-            this.helper.request({
-              type: "post",
-              auth: false,
-              withData: "json",
-              url: this.api.getUpdateRatingApi(),
-              data:{
-                userId:this.helper.getUserInfo().userId,
-                movieId:this.movieId,
-                rating:this.count
-              },
-              dataType: "json",
-              success: resp => {
-                console.log(resp)
-              }
-            });
-          }
+
+    rateThisMovie: function() {
+      if (typeof this.$route.params.id == "undefined") {
+        window.location.href = "/";
+      } else {
+        if (this.helper.getUserInfo().userId > 0) {
+          this.movieId = this.$route.params.id;
+          this.helper.request({
+            type: "post",
+            auth: false,
+            withData: "json",
+            url: this.api.getUpdateRatingApi(),
+            data: {
+              userId: this.helper.getUserInfo().userId,
+              movieId: this.movieId,
+              rating: this.count
+            },
+            dataType: "json",
+            success: resp => {
+              console.log(resp);
+            }
+          });
         }
+      }
     },
     one: function() {
-
       this.isActive = !this.isActive ? true : false;
 
-      if(this.count == 1){
+      if (this.count == 1) {
         this.count = 0;
-      }else{
+      } else {
         this.count = 1;
       }
       this.rateThisMovie();
-      
     },
     two: function() {
-
-      if(this.count == 2){
+      if (this.count == 2) {
         this.count = 0;
-      }else{
+      } else {
         this.count = 2;
       }
       this.rateThisMovie();
     },
     three: function() {
-
-      if(this.count == 3){
+      if (this.count == 3) {
         this.count = 0;
-      }else{
+      } else {
         this.count = 3;
       }
       this.rateThisMovie();
     },
     four: function() {
-      if(this.count == 4){
+      if (this.count == 4) {
         this.count = 0;
-      }else{
+      } else {
         this.count = 4;
       }
       this.rateThisMovie();
     },
     five: function() {
-      if(this.count == 5){
+      if (this.count == 5) {
         this.count = 0;
-      }else{
+      } else {
         this.count = 5;
       }
       this.rateThisMovie();
