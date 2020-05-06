@@ -74,7 +74,7 @@ export default {
       movie_details: {},
       api_datas: [],
       movieId: 0,
-      count: 3,
+      count: 0,
       isActive: false,
       isActivetwo: false,
       isActivefour: false,
@@ -122,7 +122,12 @@ export default {
         this.isActivefour = false;
         this.isActivefive = false;
       }
-      this.count = 1;
+      if(this.count == 1){
+        this.count = 0;
+      }else{
+        this.count = 1;
+      }
+      
     },
     two: function() {
       this.isActivetwo = !this.isActivetwo ? true : false;
@@ -134,7 +139,11 @@ export default {
         this.isActivefour = false;
         this.isActivefive = false;
       }
-      this.count = 2;
+      if(this.count == 2){
+        this.count = 0;
+      }else{
+        this.count = 2;
+      }
     },
     three: function() {
       this.isActivethree = !this.isActivethree ? true : false;
@@ -147,7 +156,11 @@ export default {
         this.isActivefour = false;
         this.isActivefive = false;
       }
-      this.count = 3;
+      if(this.count == 3){
+        this.count = 0;
+      }else{
+        this.count = 3;
+      }
     },
     four: function() {
       this.isActivefour = !this.isActivefour ? true : false;
@@ -160,7 +173,12 @@ export default {
       if (!this.isActivefour) {
         this.isActivefive = false;
       }
-      this.count = 4;
+
+      if(this.count == 4){
+        this.count = 0;
+      }else{
+        this.count = 4;
+      }
     },
     five: function() {
       this.isActivefive = !this.isActivefive ? true : false;
@@ -170,28 +188,11 @@ export default {
         this.isActivethree = true;
         this.isActivefour = true;
       }
-      this.count = 5;
-    },
-    totalrating: function() {
-      if (this.isActive) {
-        this.count = 1;
-      } else {
+      if(this.count == 5){
         this.count = 0;
-      }
-      if (this.isActivetwo) {
-        this.count = 2;
-      }
-      if (this.isActivethree) {
-        this.count = 3;
-      }
-      if (this.isActivefour) {
-        this.count = 4;
-      }
-      if (this.isActivefive) {
+      }else{
         this.count = 5;
       }
-      // remove this alert  part if  its working
-      alert(this.count);
     }
   },
   mounted() {

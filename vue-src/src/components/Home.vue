@@ -48,7 +48,7 @@
                     type: 'post',
                     auth:false,
                     withData:'json',
-                    url: this.api.getUserTopMoviesApi(),
+                    url: this.api.getUserTopMoviesApi()+'/'+this.helper.getUserInfo().userId,
                     dataType:'json',
                     success:(resp)=>{
                       if(resp.status == 'error'){

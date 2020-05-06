@@ -25,7 +25,7 @@ module.exports = class Api {
 		return this.getApiUrl()+'/topsimilar';//+{movieId}
 	}
 	getUserTopMoviesApi(){
-		return this.getApiUrl()+'/toptrending/us';//+{movieId}
+		return this.getApiUrl()+'/recommend';//+{userId}
 	}
 	
 }
