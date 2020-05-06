@@ -82,12 +82,18 @@ export default {
   name: "Home",
   components: {},
   data() {
-    return {
-      movie_details: {},
-      api_datas: [],
-      movieId: 0,
-      count: 0
-    };
+    if(this.helper.getUserInfo().userId>0){
+      return {
+        movie_details: {},
+        api_datas: [],
+        movieId: 0,
+        count: 0,
+        userId:this.helper.getUserInfo().userId
+      };
+    }else{
+      window.location.href = "/";
+    }
+    
   },
   watch: {
     $route(to) {
@@ -96,11 +102,24 @@ export default {
     }
   },
   methods: {
+    fetchOldRatingInfo:function(){
+      if (this.userId > 0) {
+          this.movieId = this.$route.params.id;
+          this.helper.request({
+            type: "post",
+            auth: false,
+            withData: "json",
+            url: this.api.getRatingApi() + "/" + this.userId+"/"+this.movieId,
+            dataType: "json",
+            success: resp => {
+              if(typeof(resp.data) != 'undefined'){
+                this.count = resp.data;
+              }
+            }
+          });
+        }
+    },
     callApi: function() {
-      if (typeof this.$route.params.id == "undefined") {
-        window.location.href = "/";
-      } else {
-        if (this.helper.getUserInfo().userId > 0) {
           this.movieId = this.$route.params.id;
           this.helper.request({
             type: "post",
@@ -114,18 +133,13 @@ export default {
               } else {
                 this.movie_details = resp.data.movie_details;
                 this.api_datas = resp.data.other_similar_movies;
+                this.fetchOldRatingInfo();
               }
             }
           });
-        }
-      }
     },
-    
+
     rateThisMovie:function(){
-        if (typeof this.$route.params.id == "undefined") {
-          window.location.href = "/";
-        } else {
-          if (this.helper.getUserInfo().userId > 0) {
             this.movieId = this.$route.params.id;
             this.helper.request({
               type: "post",
@@ -133,7 +147,7 @@ export default {
               withData: "json",
               url: this.api.getUpdateRatingApi(),
               data:{
-                userId:this.helper.getUserInfo().userId,
+                userId:this.userId,
                 movieId:this.movieId,
                 rating:this.count
               },
@@ -142,8 +156,6 @@ export default {
                 console.log(resp)
               }
             });
-          }
-        }
     },
     one: function() {
 
