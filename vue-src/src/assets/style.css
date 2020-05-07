@@ -105,7 +105,6 @@ a:hover{
 	color: orange;
 }
 .movie-image{
-height: 300px;
 width: 100%;
 object-fit: cover;
 }
@@ -139,4 +138,15 @@ overflow-y: scroll;
 }
 .text-bold{
 	font-weight: bold;
+}
+
+.img-responsive{
+	width: 300px;
+}
+
+.col-sm-10, .col-sm-11, .col-sm-12, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9{
+	float: right;
+ }
+.col-sm-1 {
+    width: 10%;
 }
