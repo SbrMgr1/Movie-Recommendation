@@ -1,5 +1,5 @@
 <template>
-  <div class="page mt-200">
+  <div class="page mt-100">
     <div class="page">
       <div class="container-fluid">
         <div class="row">
