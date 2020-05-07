@@ -1,12 +1,10 @@
 <template>
   <nav class="navbar navbar-default navbar-fixed-top navbar-theme">
     <div class="container">
-      <div class="navbar-header">
-        <router-link class="navbar-brand" to="/">
-          <h3 style="margin-left:700px;margin-top:1px;padding:0px">Home</h3 >
-        </router-link>
-      </div>
       <ul class="nav navbar-nav navbar-right">
+		<li>
+          <router-link to="/">Home</router-link>
+        </li>
         <li>
           <router-link to="/cms/privacy-policy">Now On Cinema</router-link>
         </li>

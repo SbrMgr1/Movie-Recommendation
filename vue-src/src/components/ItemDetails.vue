@@ -1,5 +1,5 @@
 <template>
-  <div class="page mt-100">
+  <div class="page mt-10">
     <div class="page">
       <div class="container-fluid">
         <div class="row">
@@ -13,7 +13,7 @@
                 :src="movie_details.url"
               />
             </div>
-            <div class="col-sm-4 mb-30" style="font-size: 20px">
+            <div class="col-sm-4 mb-30" style="font-size: 15px">
               <div class="row">
                 <div class="col-sm-12">
                   <img

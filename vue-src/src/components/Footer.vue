@@ -18,19 +18,6 @@
       <div class="col-md-5 mb-md-0 mb-3 col-md-offset-7">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Other Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <router-link to="/cms/privacy-policy">Privacy and Policy</router-link>
-          </li>
-          <li>
-            <router-link to="/cms/about">About</router-link>
-          </li>
-          <li>
-            <router-link to="/contact-us">Contact Us</router-link>
-          </li>
-        </ul>
 
       </div>
       <!-- Grid column -->
