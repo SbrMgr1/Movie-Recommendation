@@ -2,7 +2,7 @@
 
     <div class="page">
       <div class="md-form active-pink active-pink-2 mb-3 mt-0">
-  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+  
 </div>
       <div class="container-fluid">
           <h3 class="col-sm-12" v-if="topTrendingMovies.length>0">Top Trending Movies</h3>

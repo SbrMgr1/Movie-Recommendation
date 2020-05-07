@@ -72,7 +72,24 @@
             </div>
           </div>
           <div class="row-sm-3">
-            <h3 class="col-sm-12">Similar Movies</h3>
+            <h3 class="col-sm-12 search-text">{{similar_movie_txt}}</h3>
+              <div class="row form-group">
+                <div class="col-sm-3 pull-left">
+                  <div class="col-sm-12">
+                      <form @submit="doSearch">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search" v-model="searchInput">
+                          <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                              <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <p class="text-danger">{{searchError}}</p>
+                      </form>
+                  </div>  
+                </div>
+              </div>
               <div class="col-sm-1" v-for="(api_data,index) in api_datas" :key="index">
                 <div class="row-sm-3">
                 <router-link :to="{path: '/details/' + api_data.movieId}">
@@ -103,7 +120,10 @@ export default {
         api_datas: [],
         movieId: 0,
         count: 0,
-        userId: this.helper.getUserInfo().userId
+        similar_movie_txt:'Similar Movies',
+        userId: this.helper.getUserInfo().userId,
+        searchInput: null,
+        searchError:''
       };
     } else {
       window.location.href = "/";
@@ -112,10 +132,48 @@ export default {
   watch: {
     $route(to) {
       console.log(to);
+      this.similar_movie_txt = 'Similar Movies';
+      this.searchError = '';
+      this.searchInput = null;
       this.callApi();
     }
   },
   methods: {
+    doSearch:function(e){
+      e.preventDefault();
+      //this.movieId = this.$route.params.id;
+      if(!this.searchInput){
+        this.searchError = 'Field is empty';
+      }else{
+        this.searchError = '';
+        this.helper.request({
+        type: "post",
+        auth: false,
+        withData: "json",
+        url: this.api.getSearchApi(),
+        dataType: "json",
+        data:{
+          movie_name:this.searchInput,
+          movie_id:this.movieId,
+          user_id:this.userId,
+        },
+        success: (resp) => {
+          this.similar_movie_txt = 'Search Results';
+          if (resp.status == "error") {
+            window.location.href = "/";
+          } else {
+            //this.movie_details = resp.data.movie_details;
+            
+            // console.log(this.movie_details)
+
+            this.api_datas = resp.data.other_similar_movies;
+            this.fetchOldRatingInfo();
+          }
+        }
+      });
+      }
+      
+    },
     fetchOldRatingInfo: function() {
       if (this.userId > 0) {
         this.movieId = this.$route.params.id;

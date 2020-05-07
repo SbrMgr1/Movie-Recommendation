@@ -2,6 +2,7 @@ module.exports = class Api {
 	getHostUrl(){
 		// return 'https://mighty-escarpment-32961.herokuapp.com';
 		return 'http://ec2-18-222-249-229.us-east-2.compute.amazonaws.com:5000';
+		// return 'http://ec2-18-222-249-229.us-east-2.compute.amazonaws.com:8081';
 	}
 	getApiVersion(){
 		return 'v0';
@@ -33,6 +34,9 @@ module.exports = class Api {
 	}
 	getRatingApi(){
 		return this.getApiUrl()+'/rating';//+{userId}+{movieId}
+	}
+	getSearchApi(){
+		return this.getApiUrl()+'/topsimilarbyname';
 	}
 	
 }
