@@ -19,6 +19,7 @@
     </div>
 </template>
 <script type="text/javascript">
+
     export default {
       name: 'Home',
       components: {
@@ -31,6 +32,7 @@
         }
       },
       mounted(){
+
         /*home component is common for both guest user and after login user so displaying to trending movie for after login user only
         */
         if(this.helper.getUserInfo().userId>0){

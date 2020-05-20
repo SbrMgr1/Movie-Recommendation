@@ -1,8 +1,5 @@
 module.exports = class Helper {
 
-    userRole = {
-        user:'AUDIENCE'
-    }   
     
     getUserInfo () {
             var userInfo = {
@@ -83,7 +80,7 @@ module.exports = class Helper {
         }        
         return messageBox;
     }
-    setUserNewToken = function (newToken) {
+    setUserNewToken(newToken) {
         var userInfo = this.getUserInfo();
         if (userInfo.identity != '') {
             var userInfoLocal = JSON.parse(localStorage.getItem('userInfo'));

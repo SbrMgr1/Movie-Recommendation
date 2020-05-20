@@ -1,0 +1,20 @@
+# base image
+FROM node:12.2.0-alpine
+
+# set working directory
+WORKDIR /app
+
+# install and cache app dependencies
+COPY package.json package.json
+
+RUN npm install
+RUN npm install @vue/cli@3.7.0 -g
+
+COPY public/ public/
+COPY src/ src/
+
+# start app
+CMD ["npm", "run", "serve"]
+
+# docker build -t front .
+# docker run -it -v /app -v /app -p 8085:8080 front

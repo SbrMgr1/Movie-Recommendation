@@ -1,0 +1,26 @@
+docker ps -a                               --> to see all containers in docker
+docker ps                                  --> to see only running containers in docker
+docker stop $(docker ps)                   --> to stop running containers in docker. Why we do not use "docker stop $(docker ps -a)"?
+docker rm $(docker ps -a)                  --> to remove all containers from docker
+docker rm -force containerId               --> to remove specific container
+docker run -it -p 8085:8080 --rm imageName --> it makes a container to run specified Image.
+										        Note: container will be created only when we run our image.
+
+If we delete all containers then images are still there in the docker. Why? see docker architecture image
+docker images                              --> to see all images in docker
+docker rmi imageId                         --> to delete specific image
+										       Note: image may be using by container. so to delete image we have to delete container who is using the image      and then we can delete image.
+										       Second Note: container may be running as well. So in this case we must stop container first then delete
+docker build -t imageName . --rm           --> to create image of the project
+docker run -it imageName sh                --> to see image contains. 
+										       Note: It is necessary to see wheather our files and folder is copied properly or not in working directory
+exit                                       --> to exit from looking image contains
+
+
+Other important terms
+-it                                        --> for attractive
+-a                                         --> all
+-t                                         --> Name and optionally a tag in the
+                                               'name:tag' format
+--rm                                       --> Remove intermediate containers after a
+                                	     	   successful build (default true)
